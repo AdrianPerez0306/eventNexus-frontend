@@ -223,7 +223,7 @@ export const UserForm = ({ userForm, click }: FormularyProps) => {
                         type="submit"
                         onSubmit={ (e) => {
                             handleSubmit(click)
-                            console.log('mock')}
+                             }
                         }
                         sx={{ backgroundColor: 'forest' }}
                     >

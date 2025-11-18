@@ -86,7 +86,7 @@ export const CreateUss = () => {
     useEffect(() => {
         const fetchAndSetUser = async () => {
             const data = await fetchData();
-            console.log(data);
+             
             setUser(data);
         };
         fetchAndSetUser();

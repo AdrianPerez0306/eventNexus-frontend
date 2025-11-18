@@ -26,8 +26,8 @@ export const Login = () => {
 	const { register, handleSubmit, getValues, formState: { errors }, reset, } = useForm<LoginForm>({
 		mode: "all",
 		defaultValues: {
-		user: "",
-		password: "",
+			user: "",
+			password: "",
 		},
 	});
 
@@ -42,80 +42,84 @@ export const Login = () => {
 		setPass(password);
 
 		try {
-		const credentials = LoginRequestDTO.fromDto(user, password);
-		const loginSuccess = await authService.loginClient(credentials);
+			const credentials = LoginRequestDTO.fromDto(user, password);
+			 
+			const loginSuccess = await authService.loginClient(credentials);
+			 
 
-		if (loginSuccess) {
-			const img = sessionStorage.getItem("img") || "";
-			setImg(img);
-			reset();
-			setTimeout(() => {
-			setIsLoading(false);
-			handleNavigation();
-			}, TIMELOADER);
-		} else {
-			setTimeout(() => {
-			setIsLoading(false);
-			open("Credenciales incorrectas", "error");
-			reset();
-			}, TIMELOADER);
-		}
+			if (loginSuccess) {
+				const img = sessionStorage.getItem("img") || "";
+				setImg(img);
+				reset();
+				setTimeout(() => {
+					setIsLoading(false);
+					handleNavigation();
+				}, TIMELOADER);
+			} else {
+				setTimeout(() => {
+					setIsLoading(false);
+					open("Credenciales incorrectas", "error");
+					reset();
+				}, TIMELOADER);
+			}
 		} catch (error) {
-		if (error instanceof Error && (error as any).response) {
-			openHTTP((error as any).response);
-		} else {
-			open("Ocurrió un error inesperado", "error");
-		}
+			 
+			if (error instanceof Error && (error as any).response) {
+				 
+				openHTTP((error as any).response);
+			} else {
+				open("Ocurrió un error inesperado", "error");
+			}
 		}
 	};
 
 
 
-  return (
-    <>
-      <div className="login-box">
+	return (
+		<>
+			<div className="login-box">
 
-        <HexagonBackground></HexagonBackground>
-        <form className="loginFormulary" onSubmit={handleSubmit(handleLogin)}>
-          <Title title={"Event Nexus"} />
-          <InputApp
-            label="Usuario"
-            type="text"
-            register={register("user", {
-              required: "El usuario es obligatorio",
-            })}
-            error={errors.user?.message || ""}
-            readonly={false}
-          />
+				<HexagonBackground></HexagonBackground>
+				<form className="loginFormulary" onSubmit={handleSubmit(handleLogin)}>
+					<Title title={"Event Nexus"} />
+					<InputApp
+						label="Usuario"
+						type="text"
+						register={register("user", {
+							required: "El usuario es obligatorio",
+						})}
+						error={errors.user?.message || ""}
+						readonly={false}
+					/>
 
-          <InputApp
-            label="Contraseña"
-            type="password"
-            register={register("password", {
-              required: "La contraseña es obligatoria",
-            })}
-            error={errors.password?.message || ""}
-            readonly={false}
-          />
+					<InputApp
+						label="Contraseña"
+						type="password"
+						register={register("password", {
+							required: "La contraseña es obligatoria",
+						})}
+						error={errors.password?.message || ""}
+						readonly={false}
+					/>
 
-          <h2>
-            <a className="forgotPassword" onClick={() => navigate("/recovery")}>
+					<h2>
+						<a className="forgotPassword" onClick={() => navigate("/recovery")}>
 
-              Olvidaste tu contraseña?
-            </a>
-          </h2>
+							Olvidaste tu contraseña?
+						</a>
+					</h2>
 
-          <div className="buttonsLogin">
-            <ButtonApp
-              label="Ingresar"
-			  buttonType="submit"
-			  onSubmitMethod={handleSubmit(handleLogin)}
-              method={handleSubmit(handleLogin)}
-              isCancel={false}
-            />
-          </div>
-        </form>
-      </div>
-    </>
-  );
+					<div className="buttonsLogin">
+						<ButtonApp
+							label="Ingresar"
+							buttonType="submit"
+							onSubmitMethod={handleSubmit(handleLogin)}
+							method={handleSubmit(handleLogin)}
+							isCancel={false}
+						/>
+					</div>
+				</form>
+			</div>
+		</>
+	);
 };

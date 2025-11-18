@@ -23,7 +23,7 @@ export const ProfileCard = ({ user, click }: userCard) => {
     const handleClose = () => setOpen(false);
 
     const toUpdate = () => {
-        console.log("update");
+         
         nav(`/module-admin/updateUser/${user.id}`);
     };
 

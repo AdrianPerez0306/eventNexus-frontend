@@ -24,7 +24,7 @@ export const InviteUserCard = ({ user, click, invited }: userCard) => {
     };
 
     useEffect(() => {
-        console.log(invited)
+         
     }, [invited])
     return (
         <div className="interactiveUserCard">
