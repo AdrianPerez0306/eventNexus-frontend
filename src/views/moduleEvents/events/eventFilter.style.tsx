@@ -22,11 +22,11 @@ export const StyledList = styled(List)(({ theme }: { theme: Theme }) => ({
     borderRadius:'1rem'
 }));
 
-export const StyleMenuItem = styled(MenuItem)(({ theme }: { theme: Theme }) => ({
+export const StyleMenuItem = styled(MenuItem)(() => ({
     width:'min(100%, 45rem)'
 }));
 
-export const StyledFloatingButton = styled(Fab)(({ theme }: { theme: Theme }) => ({
+export const StyledFloatingButton = styled(Fab)(() => ({
     position:'absolute',
     left:'2rem',
     bottom:'1rem',
@@ -35,7 +35,7 @@ export const StyledFloatingButton = styled(Fab)(({ theme }: { theme: Theme }) =>
     // backgroundColor: theme.palette.
 }));
 
-export const StyledFloatingButtonRight = styled(Fab)(({ theme }: { theme: Theme }) => ({
+export const StyledFloatingButtonRight = styled(Fab)(() => ({
     position:'absolute',
     right:'2rem',
     bottom:'1rem',
@@ -44,7 +44,7 @@ export const StyledFloatingButtonRight = styled(Fab)(({ theme }: { theme: Theme 
     // backgroundColor: theme.palette.
 }));
 
-export const StyledFloatingConfirmEventButton = styled(Fab)(({ theme }: { theme: Theme }) => ({
+export const StyledFloatingConfirmEventButton = styled(Fab)(() => ({
     position:'absolute',
     right:'2rem',
     bottom:'1rem',

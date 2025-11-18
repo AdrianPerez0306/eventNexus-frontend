@@ -33,11 +33,7 @@ export const UserForm = ({ userForm, click }: FormularyProps) => {
 
     const [permisos, setPermisos] = useState<string[]>([]);
     const [roles, setRoles] = useState<string[]>([]);
-    const isCreate = userForm.id === 0;
 
-    const cancelCreate = () => {
-        reset(new FormCreateUss());
-    };
     useEffect(() => {
         const fetchPermissions = async () => {
             const res = await serviceUser.getPermissions();
@@ -58,7 +54,7 @@ export const UserForm = ({ userForm, click }: FormularyProps) => {
 
     return (
         <>
-        <StyledFloatingButton color="primary" aria-label="add" onClick={(e) => (nav('/module-admin/search-user'))} sx={{ backgroundColor: 'crimson' }}>
+        <StyledFloatingButton color="primary" aria-label="add" onClick={(_) => (nav('/module-admin/search-user'))} sx={{ backgroundColor: 'crimson' }}>
                         <Cancel />
         </StyledFloatingButton>
             <form className="profileFormulary"   onSubmit={handleSubmit(click)} >
@@ -220,7 +216,7 @@ export const UserForm = ({ userForm, click }: FormularyProps) => {
                         color="success"
                         aria-label="add"
                         type="submit"
-                        onSubmit={ (e) => {
+                        onSubmit={ (_) => {
                             handleSubmit(click)
                              }
                         }
