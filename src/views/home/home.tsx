@@ -19,7 +19,7 @@ export const Home = () => {
             setModules(res)
             setLoading(false)
         } catch (e: unknown) {
-            console.log(e)
+             
         }
     }
 

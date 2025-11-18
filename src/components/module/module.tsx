@@ -31,9 +31,9 @@ export const ModuleCard = (
 
     const navigate = () => {
         const mapValue = value.name.split(" ")[0].toLowerCase();
-        console.log(mapValue)
+         
         const routeKey = Object.keys(mapRoutes).find(key => key.toLowerCase() === mapValue);
-        console.log(routeKey)
+         
         if (routeKey) {
             const route = mapRoutes[routeKey as keyof typeof mapRoutes];
             nav(route);

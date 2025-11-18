@@ -45,7 +45,7 @@ export const EventCard = ({ eventDTO }: { eventDTO: EventDto }) => {
 	async function handleDelete() {
 		try {
 			const response = await deleteEvent(event.id);
-			console.log(response)
+			 
 			// setEvent((prevEvent) => ({
 			// 	...prevEvent,
 			// 	participants: response.responseBody,

@@ -20,7 +20,7 @@ export const SearchUser = () => {
 
 	const fetchUSer = async () => {
 		const response = await serviceUser.search(value);
-		console.log(response);
+		 
 		setUsers(response);
 	};
 
@@ -34,7 +34,7 @@ export const SearchUser = () => {
 
 		const newUsers = users?.filter((user) => user.id !== id);
 		setUsers(newUsers);
-		console.log(res);
+		 
 	}
 
 	// Cerrar input si se clickea fuera

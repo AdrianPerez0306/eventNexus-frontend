@@ -39,7 +39,7 @@ export const Profile = () => {
 		try {
 			await serviceUser.updateProfile(data);
 			setDatos(data);
-			console.log("Datos actualizados:", data);
+			 
 		} catch (error) {
 			open("Error al actualizar los datos", "error");
 		}

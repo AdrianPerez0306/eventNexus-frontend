@@ -58,7 +58,7 @@ export const EventFilter = (
 
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        console.log(inputRef.current?.value);
+         
         if (inputRef.current) {
             getEvents();
         }
@@ -95,9 +95,9 @@ export const EventFilter = (
                 className="filter"
                 onClick={(e) => {
                     e.preventDefault()
-                    console.log(filterOpen)
+                     
                     setFilterOpen((prev) => !prev)
-                    console.log(filterOpen)
+                     
                 }}>
                 <strong> {options[selectedIndex]}</strong>
                 {filterOpen ?
@@ -149,7 +149,7 @@ export const EventFilter = (
                             sx={{ height: '5rem' }}
                             onClick={(e) => {
                                 setEventCategory(eventTypes[index])
-                                console.log(eventTypes[index])
+                                 
                             }}
                         >
                             {eventType}

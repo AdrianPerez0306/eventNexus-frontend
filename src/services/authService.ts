@@ -1,10 +1,11 @@
 import axios from "axios";
 import { LoginRequestDTO, loginResponseDTO, LoginResponseDTO } from "../domain/Login";
+import { SERVER_CONNECTION } from "./serverConstants";
 
 class AuthService {
 
     async loginClient(data: LoginRequestDTO): Promise<boolean> {
-        const url = process.env.REACT_APP_URL_SERVIDOR_REST;
+        const url = SERVER_CONNECTION;
         try {
             const res = await axios.post<LoginResponseDTO>(`${url}/auth/login`, data);
             const userData = loginResponseDTO.fromDto(res.data);

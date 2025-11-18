@@ -40,7 +40,7 @@ export const CreateEvent = () => {
         const eventCreated = new CreateEventDTO(userId, invitedUsers, date, title, description, eventType)
         try {
             setIsLoading(true)
-            console.log(eventCreated)
+             
             await moduleService.create(eventCreated)
             reset()
             setInviteMode(false)
@@ -56,7 +56,7 @@ export const CreateEvent = () => {
 
     async function getAvaliableUsers() {
         const response = await serviceUser.search("");
-        console.log(response);
+         
         setAvailableUsers(response);
     }
 
@@ -193,7 +193,7 @@ export const CreateEvent = () => {
                         type="submit"
                         onSubmit={ (e) => {
                             handleSubmit(create)
-                            console.log('mock')}
+                             }
                         }
                         sx={{ backgroundColor: 'forest' }}
                     >
