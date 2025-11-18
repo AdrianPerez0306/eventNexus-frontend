@@ -7,7 +7,7 @@ import ConeIcon from '../svgComponent/svgComponent';
 import { adminModuleIcon, directivetModuleIcon, eventModuleIcon, notificationIcon } from '../../utils/svgIcons';
 
 export const ModuleCard = (
-    { value, setIndex, maxLenght }: {
+    { value }: {
         value: Module,
         setIndex: React.Dispatch<React.SetStateAction<number>>,
         maxLenght:number
@@ -21,10 +21,10 @@ export const ModuleCard = (
     };
 
     function mapSvgIcon(imagePath:string){
-        if(imagePath=='events.svg'){return <ConeIcon className='icon-module' svgContent={eventModuleIcon}></ConeIcon>}
-        if(imagePath=='information.svg'){return <ConeIcon className='icon-module'svgContent={directivetModuleIcon}></ConeIcon>}
-        if(imagePath=='admin.svg'){return <ConeIcon className='icon-module'svgContent={adminModuleIcon}></ConeIcon>}
-        if(imagePath=='notification.svg'){return <ConeIcon className='icon-module'svgContent={notificationIcon}></ConeIcon>}
+        if(imagePath=='events.svg'){return <ConeIcon className='icon-module' svgContent={eventModuleIcon} width='24px' height='24px'></ConeIcon>}
+        if(imagePath=='information.svg'){return <ConeIcon className='icon-module'svgContent={directivetModuleIcon} width='24px' height='24px'></ConeIcon>}
+        if(imagePath=='admin.svg'){return <ConeIcon className='icon-module'svgContent={adminModuleIcon} width='24px' height='24px'></ConeIcon>}
+        if(imagePath=='notification.svg'){return <ConeIcon className='icon-module'svgContent={notificationIcon}width='24px' height='24px'></ConeIcon>}
     };
 
     const nav = useNavigate();

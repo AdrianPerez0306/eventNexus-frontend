@@ -13,13 +13,13 @@ class ServiceUser {
 		return res.data;
 	}
 
-	async getPermissionsUser(id: number, type: PermissionType): Promise<string[]> {
+	async getPermissionsUser(_: number, type: PermissionType): Promise<string[]> {
 		const url = SERVER_CONNECTION;
 		const res = await axios.get(`${url}/user/permissions/${type}`);
 		return res.data;
 	}
 
-	async getProfileDatos(id: number): Promise<DatosForm> {
+	async getProfileDatos(_: number): Promise<DatosForm> {
 		const url = SERVER_CONNECTION;
 		const response = await axios.get<DatosForm>(`${url}/user/profile`);
 		const entity = DatosForm.fromDto(response.data);
@@ -27,7 +27,7 @@ class ServiceUser {
 		return entity;
 	}
 
-	async getHeaderData(id: number): Promise<HeaderDto> {
+	async getHeaderData(_: number): Promise<HeaderDto> {
 		const url = SERVER_CONNECTION;
 		const response = await axios.get(`${url}/user/header`);
 		const entity = response.data;
@@ -45,7 +45,7 @@ class ServiceUser {
 		const url = SERVER_CONNECTION;
 		const id = Number(sessionStorage.getItem("userId"));
 		const update = { id, img };
-		const res = await axios.put(`${url}/user/img`, update);
+		await axios.put(`${url}/user/img`, update);
 		 
 	}
 

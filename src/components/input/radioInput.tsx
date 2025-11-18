@@ -14,7 +14,7 @@ export const RadioInput = ({ label, value, register, helper} : RadioInputProps) 
                 <label className="radiobox-input">
                     <input className="event-type-radio"
                         type="radio"
-                        value={label}
+                        value={value}
                         {...register}
                     />
                     <span className="keySpan">{label}</span>

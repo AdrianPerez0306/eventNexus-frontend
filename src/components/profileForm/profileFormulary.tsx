@@ -32,9 +32,6 @@ export const ProfileFormulary = ({ info, uploadData }: PropsFormulary) => {
 		}
 	};
 
-	const cancel = () => {
-		reset(info);
-	};
 
 	const HandleCancel = () => {
 		reset(info);

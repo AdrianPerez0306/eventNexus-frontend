@@ -5,7 +5,7 @@ import { SERVER_CONNECTION } from "./serverConstants";
 class DiretiveInfoService {
     async createDirectiveInfo(directiveInfoData: DirectiveInfoData): Promise<void> {
         const url = SERVER_CONNECTION;
-        const response = await axios.post(`${url}/directive/create`,directiveInfoData);
+        await axios.post(`${url}/directive/create`,directiveInfoData);
          
     }
     

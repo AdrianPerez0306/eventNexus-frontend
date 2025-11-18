@@ -19,10 +19,10 @@ export async function trySSE(
     } else {
         const url = SERVER_CONNECTION;
         eventSource = new EventSource(`${url}/notification?employeeId=${userId}`);
-        eventSource.onopen = (event: Event) => {
+        eventSource.onopen = (_: Event) => {
              
         };
-        eventSource.onerror = (error) => {
+        eventSource.onerror = (__) => {
              
             eventSource?.close()
         };
@@ -50,7 +50,7 @@ export async function trySSE(
     // });
 }
 
-export async function getNotificationsByUserId(userId: number): Promise<NotificationDTO[]> {
+export async function getNotificationsByUserId(_: number): Promise<NotificationDTO[]> {
     const url = SERVER_CONNECTION;
     const response = await axios.get(`${url}/notification/employee`);
     return response.data

@@ -45,7 +45,7 @@ export const CredentialsComponent = () => {
     const sendData = async (data: CredentialsDto): Promise<void> => {
         setIsLoading(true)
         try{
-            const res = isRecovery ? await credentialService.changePassword(data) : await credentialService.confirmCredentials(data);
+            isRecovery ? await credentialService.changePassword(data) : await credentialService.confirmCredentials(data);
             setTimeout(() => {
                 setIsLoading(false)
                 nav('/login')

@@ -1,4 +1,4 @@
-import { CssBaseline, styled, Switch, ThemeProvider } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import "./App.css";
 import { ProfileImgProvider } from "./context/contextImg";
 import { LoaderProvider } from "./context/loader/useLoader";
@@ -8,29 +8,9 @@ import { useEffect, useState } from "react";
 import { appTheme } from "./MUI/theme";
 import { MaterialUISwitch } from "./MUI/switch";
 
-const StyledSwitchToggle = styled(Switch)(({ theme }) => ({
-	background: theme.palette.secondary.main,
-	position: 'absolute',
-	bottom: 80,
-	right: 2,
-	zIndex: 'tooltip',
-	borderRadius: '1rem',
-	transform: 'rotate(90deg)'
-}));
-
-const StyledSwitchToggleLogin = styled(Switch)(({ theme }) => ({
-	// background: theme.palette.primary.main,
-	position: 'absolute',
-	top: 180,
-	right: 20,
-	borderRadius: '1rem',
-	zIndex: 999
-}));
-
 function App() {
 	const [darkMode, setDarkMode] = useState(false);
 	const theme = appTheme(darkMode)
-	// const [themeAux, setThemeAux] = useState<ThemeAux>('light');
 
 	function handleChange() {
 		setDarkMode((darkModeValue)=>!darkModeValue)
@@ -68,8 +48,6 @@ interface SwitchToggleThemeModeProps {
 
 }
 
-
-type ThemeAux = 'light' | 'dark'
 function SwitchToggleThemeMode(props: SwitchToggleThemeModeProps) {
 
 
@@ -78,7 +56,6 @@ function SwitchToggleThemeMode(props: SwitchToggleThemeModeProps) {
 		<>
 			{window.location.pathname != '/login' &&
 				<MaterialUISwitch checked={props.checked} onChange={props.change} ></MaterialUISwitch>
-				// <StyledSwitchToggleLogin checked={props.checked} onChange={props.change} />
 			}
 		</>
 	);

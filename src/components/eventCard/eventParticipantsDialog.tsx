@@ -24,7 +24,7 @@ export function SimpleDialog(props: SimpleDialogProps) {
       <List sx={{ pt: 0 }}>
         {participants.map((participant) => (
           <ListItem disablePadding key={participant.id}>
-            <ListItemButton onClick={() => handleListItemClick(participant.name)}>
+            <ListItemButton onClick={(_) => handleListItemClick(participant.name)}>
               <Avatar alt="" src={participant.image} />
               <ListItemText primary={participant.name} />
             </ListItemButton>

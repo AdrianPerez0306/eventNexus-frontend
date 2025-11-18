@@ -13,7 +13,7 @@ export const Events = () => {
 	return <>
 		<div className="container__events">
 			<EventFilter eventSetter={setEvents} />
-			<button className="button_floating" onClick={(e) => (nav('/module-events/create-event'))}>+</button>
+			<button className="button_floating" onClick={(_) => (nav('/module-events/create-event'))}>+</button>
 			<StyledGrid container>
 				{events?.length ? (
 					events.map((event, index) => (
