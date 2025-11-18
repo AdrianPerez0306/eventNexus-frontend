@@ -1,7 +1,5 @@
-import { Avatar, Dialog, DialogTitle, List, ListItem, ListItemAvatar, ListItemButton, ListItemText } from "@mui/material";
+import { Avatar, Dialog, DialogTitle, List, ListItem, ListItemButton, ListItemText } from "@mui/material";
 import { EventParticipantDTO } from "../../domain/createEvent";
-import { AddIcCallOutlined, PersonPinCircleOutlined } from "@mui/icons-material";
-import { blue } from "@mui/material/colors";
 
 export interface SimpleDialogProps {
   open: boolean;

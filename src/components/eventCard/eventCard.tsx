@@ -1,6 +1,6 @@
 import { EventDTO } from "../../domain/createEvent";
-import { eventColorMapping, eventShadowColor2 } from "../../utils/typeEvent";
-import { Avatar, AvatarGroup, Box, Button, Divider, Tooltip } from "@mui/material";
+import { eventShadowColor2 } from "../../utils/typeEvent";
+import { Avatar, AvatarGroup, Button, Divider, Tooltip } from "@mui/material";
 import { EventCategory } from "../../domain/eventTypes";
 import { useEffect, useState } from "react";
 import { deleteEvent, moduleService } from "../../services/moduleService";

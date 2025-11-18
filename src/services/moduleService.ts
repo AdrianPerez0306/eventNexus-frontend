@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { Module } from "../domain/module";
 import { CreateEventDTO, EventDTO, ResponseEntityDTO } from '../domain/createEvent';
-import { EventType } from 'react-hook-form';
 import { EventCategory } from '../domain/eventTypes';
 import { SERVER_CONNECTION } from './serverConstants';
 

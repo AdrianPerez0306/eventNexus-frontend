@@ -4,7 +4,7 @@ import { ProfileImgProvider } from "./context/contextImg";
 import { LoaderProvider } from "./context/loader/useLoader";
 import { ToastProvider } from "./context/toast/useToast";
 import { AppRouter } from "./routes";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { appTheme } from "./MUI/theme";
 import { MaterialUISwitch } from "./MUI/switch";
 

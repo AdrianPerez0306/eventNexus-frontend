@@ -1,4 +1,4 @@
-import { Card, CardContent, IconButton, Paper, styled, Theme, Typography } from "@mui/material";
+import { IconButton, Paper, styled, Theme } from "@mui/material";
 
 
 export const StyledCard = styled(Paper)(({ theme }: { theme: Theme }) => ({
