@@ -2,9 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HexagonBackground } from "../../components/hexagonBackground/hexagonBackg";
 import { Title } from "../../components/title/title";
 import { InputApp } from "../../components/input/input";
-import { get, set, useForm } from "react-hook-form";
-import { LoginForm } from "../../domain/datosForm";
-import { BaseSyntheticEvent } from "react";
+import { useForm } from "react-hook-form";
 import { ButtonApp } from "../../components/buttons/button";
 import './credentials.css'
 import { CredentialsDto, CredentialsForm } from "../../domain/credentials";
@@ -24,7 +22,7 @@ export const CredentialsComponent = () => {
 
 
 
-    const { register, handleSubmit, getValues, reset, formState: { errors } } = useForm<CredentialsForm>({
+    const { register, handleSubmit, getValues, formState: { errors } } = useForm<CredentialsForm>({
         mode: "all",
         defaultValues: {
             user: "",
@@ -35,7 +33,7 @@ export const CredentialsComponent = () => {
     });
 
     const createUser = async (data: CredentialsForm): Promise<void> => {
-        const { mail, user, password, confirmPassword } = getValues();
+        const { password, confirmPassword } = getValues();
         if (password == confirmPassword) {
             const credentials = new CredentialsDto(data);
             sendData(credentials);
