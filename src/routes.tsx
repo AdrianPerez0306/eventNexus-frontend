@@ -10,7 +10,6 @@ import {CreateUss} from './views/moduleAdmin/createUss/createUss';
 import { ModuleAdmin } from './views/moduleAdmin/moculeAdmint';
 import { SearchUser } from './views/moduleAdmin/searchUss/searchUss';
 import { CredentialsComponent } from './views/credentials/credentials';
-import { RelatedEvents } from './views/moduleEvents/relatedEvents/relatedEvents';
 import { DirectiveInfo } from './views/moduleDirectiveInfo/DirectiveInfo/directiveInfo';
 
 

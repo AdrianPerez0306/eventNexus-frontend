@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { InputApp } from "../../../components/input/input"
 import './createEvent.css'
-import { ButtonApp } from "../../../components/buttons/button";
 import { CreateEventDTO } from "../../../domain/createEvent";
 import { moduleService } from "../../../services/moduleService";
 import { useLoader } from "../../../context/loader/useLoader";

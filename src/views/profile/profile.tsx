@@ -6,7 +6,6 @@ import "./profile.css";
 import "../../components/title/title.css"
 import { ProfileImg } from "../../components/profileImg/profileImg";
 import { useLoader } from "../../context/loader/useLoader";
-import { TIMELOADER } from "../../utils/config";
 import { useToast } from "../../context/toast/useToast";
 
 export const Profile = () => {

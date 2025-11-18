@@ -1,9 +1,7 @@
-import { blue, blueGrey, green, grey, indigo, orange, purple, red } from "@mui/material/colors";
+import { blue, blueGrey, green, indigo, orange, purple, red } from "@mui/material/colors";
 import { createTheme } from "@mui/material";
-import { useEffect, useState } from "react";
 
-// Theme ya existe en material
-type ThemeTypeAux = 'dark' | 'light'
+
 export const appTheme = (mode: boolean) => {
   // const [theme, setTheme] = useState<ThemeTypeAux>('light')
 

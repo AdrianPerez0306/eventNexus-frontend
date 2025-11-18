@@ -3,8 +3,8 @@ import './button.css';
 interface ButtonProps {
     label: string;
     method : () => void;
-    onSubmitMethod: () => void;
-    buttonType:"button" | "submit" | "reset" | undefined;
+    onSubmitMethod?: () => void;
+    buttonType? :"button" | "submit" | "reset" | undefined;
     isCancel: boolean;
 }
 

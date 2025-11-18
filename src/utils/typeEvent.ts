@@ -1,7 +1,4 @@
-import { OverridableStringUnion } from "@mui/types";
 import { EventCategory } from "../domain/eventTypes";
-import { ChipPropsColorOverrides } from "@mui/material";
-
 export const eventColorMapping: Record<EventCategory, string> = {
   SOCIAL: "error.dark",    // O 'success.main' si usas el tema de Material UI
   DEPORTIVO: "success.dark",       // O 'primary.main'

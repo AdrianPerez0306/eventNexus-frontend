@@ -1,6 +1,5 @@
 import { useForm } from 'react-hook-form';
 import { FormCreateUss } from '../../domain/User-Domain';
-import { ButtonApp } from '../buttons/button';
 import { InputApp } from '../input/input';
 import { Title } from '../title/title';
 import './userForm.css';
@@ -9,7 +8,7 @@ import { useEffect, useState } from 'react';
 import { serviceUser } from '../../services/serviceUser';
 import { BoxInput } from '../input/boxInput';
 import { RadioInput } from '../input/radioInput';
-import { Cancel, DialerSip } from '@mui/icons-material';
+import { Cancel } from '@mui/icons-material';
 import { Divider } from '@mui/material';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
@@ -27,7 +26,7 @@ export const UserForm = ({ userForm, click }: FormularyProps) => {
     const [rolTypeMode, setRolTypeMode] = useState(false);
     const [permTypeMode, setPermTypeMode] = useState(false);
 
-    const { register, handleSubmit, formState: { errors }, reset, getValues } = useForm({
+    const { register, handleSubmit, formState: { errors }, reset } = useForm({
         mode: "all",
         defaultValues: userForm,
     });

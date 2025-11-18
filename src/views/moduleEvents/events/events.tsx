@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { EventCard } from "../../../components/eventCard/eventCard";
-import { EventDto } from "../../../domain/createEvent";
+import { EventDTO } from "../../../domain/createEvent";
 import { EventFilter } from "./eventFilter";
 import { StyledGrid } from "./event.style";
 import { useNavigate } from "react-router-dom";
 import './events.css'
 
 export const Events = () => {
-	const [events, setEvents] = useState<EventDto[]>();
+	const [events, setEvents] = useState<EventDTO[]>();
 	const nav = useNavigate()
 
 	return <>

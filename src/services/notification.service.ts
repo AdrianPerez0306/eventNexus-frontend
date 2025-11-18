@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { NotificationDTO } from '../domain/notification';
 import axios from 'axios';
 import { SERVER_CONNECTION } from "./serverConstants";

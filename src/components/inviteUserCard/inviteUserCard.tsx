@@ -1,8 +1,4 @@
-import CreateIcon from '@mui/icons-material/Create';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
-import { useEffect, useState } from "react";
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
 import { useProfileImg } from "../../context/contextImg";
 import { SesionStorage } from '../../domain/user';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
