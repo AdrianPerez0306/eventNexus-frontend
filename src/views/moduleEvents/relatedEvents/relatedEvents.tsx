@@ -1,41 +1,45 @@
-import { SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { EventCard } from "../../../components/eventCard/eventCard";
 import { useToast } from "../../../context/toast/useToast";
-import { EmployeeEvents, EventDto } from "../../../domain/createEvent";
-import { moduleService } from "../../../services/moduleService";
+import { EventDTO } from "../../../domain/createEvent";
+import { getEventsByCreator, getEventsByInvitation, moduleService } from "../../../services/moduleService";
 import "./relatedEvents.css";
-import { EventFilter } from "../events/eventFilter";
 
 type mode = "createdEvents" | "invitedEvents"
 export const RelatedEvents = () => {
     ;
-    const [events, setEvents] = useState<EventDto[]>();
-    const [eventsEmployee, setEventsEmployee] = useState<EmployeeEvents>();
+    const [events, setEvents] = useState<EventDTO[]>([]);
     const [mode, setMode] = useState<mode>("invitedEvents");
     const { open } = useToast();
-    const userId = Number(sessionStorage.getItem('userId'));
+    const existInvitedOrCreatedEvents = useRef(false);
 
-    async function getEmployeeEvents() {
-        const events: EmployeeEvents = await moduleService.employeeEvents(userId);
-        setEventsEmployee(events);
+    async function getEmployeeCreatedEvents() {
+        const events: EventDTO[] = await getEventsByCreator();
+        setEvents(events);
+    }
+    async function getEmployeeInvitedEvents() {
+        const events: EventDTO[] = await getEventsByInvitation();
+        setEvents(events);
+    }
+
+    function existEmployeeEvents(eventList:EventDTO[]): boolean {
+        return eventList.length > 0;
+    }
+
+    function renderEvents() {
+        return events.map((event, index) => (
+            <EventCard eventDTO={event}/>
+        ));
     }
     useEffect(() => {
-        getEmployeeEvents();
+        mode == "createdEvents" ?
+        getEmployeeCreatedEvents() :
+        getEmployeeInvitedEvents()
     }, [mode])
+
     const joinleaveEvent = async (eventId: number) => {
         try {
             await moduleService.joinleaveEvent(eventId);
-            setEventsEmployee((prevState) => {
-                if (prevState) {
-                    return {
-                        ...prevState,
-                        invitedEvents: prevState.invitedEvents.filter(
-                            (event) => event.id !== eventId
-                        ),
-                    };
-                }
-                return prevState;
-            });
 
             setEvents((prevState) => {
                 if (prevState) {
@@ -54,28 +58,16 @@ export const RelatedEvents = () => {
         <div className="containerEvents">
             <button onClick={(e) => setMode("invitedEvents")}>Participo</button>
             <button onClick={(e) => setMode("createdEvents")}>Creados</button>
-            {mode == "createdEvents" && eventsEmployee?.createdEvents?.length != 0 ? (
-                eventsEmployee?.createdEvents?.map((event, index) => (
-                    <EventCard
-                        key={event.id || index}
-                        event={event as EventDto}
-                        method={joinleaveEvent}
-                    />
-                ))
-            ) : (
-                <h2>No creaste ningun evento!</h2>
-            )}
-            {mode == "invitedEvents" && eventsEmployee?.invitedEvents?.length != 0 ? (
-                eventsEmployee?.invitedEvents?.map((event, index) => (
-                    <EventCard
-                        key={event.id || index}
-                        event={event as EventDto}
-                        method={joinleaveEvent}
-                    />
-                ))
-            ) : (
-                <h2>No participas de ningun evento!</h2>
-            )}
+            
+
+            {mode == "createdEvents" && existEmployeeEvents(events) ?
+                (   renderEvents() ) :
+                (   <h2>No creaste ningun evento!</h2>  )
+            }
+            {mode == "invitedEvents" && existEmployeeEvents(events) ?
+                (   renderEvents()  ) : 
+                (   <h2>No participas de ningun evento!</h2>  )
+            }
         </div>
     );
 };

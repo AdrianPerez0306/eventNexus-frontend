@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Module } from "../domain/module";
-import { CreateEventDTO, EventDto, ResponseEntityDTO } from '../domain/createEvent';
+import { CreateEventDTO, EventDTO, ResponseEntityDTO } from '../domain/createEvent';
 import { EventType } from 'react-hook-form';
 import { EventCategory } from '../domain/eventTypes';
 import { SERVER_CONNECTION } from './serverConstants';
@@ -10,12 +10,6 @@ class ModuleService {
     async getEvents() {
         const url = SERVER_CONNECTION;
         const response = await axios.get(`${url}/event`);
-        return response.data
-    }
-
-    async employeeEvents(employeeId: number) {
-        const url = SERVER_CONNECTION;
-        const response = await axios.get(`${url}/event/created`);
         return response.data
     }
 
@@ -47,7 +41,7 @@ export const moduleService = new ModuleService()
 //     return response.data
 // }
 
-export async function getEvents(): Promise<EventDto[]> {
+export async function getEvents(): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
     const userId: number = Number(sessionStorage.getItem('userId'))
     const response = await axios.get(`${url}/event/available`);
@@ -55,30 +49,28 @@ export async function getEvents(): Promise<EventDto[]> {
     return response.data
 }
 
-export async function getEventsByTitle(eventTitle: string): Promise<EventDto[]> {
+export async function getEventsByTitle(eventTitle: string): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
     const response = await axios.get(`${url}/event/title?eventTitle=${eventTitle}`);
      
     return response.data
 }
 
-export async function getEventsByCategory(eventCategory: string): Promise<EventDto[]> {
+export async function getEventsByCategory(eventCategory: string): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
     const response = await axios.get(`${url}/event/type/${eventCategory}`);
      
     return response.data
 }
 
-export async function getEventsByCreator(): Promise<EventDto[]> {
+export async function getEventsByCreator(): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
-    const userId: number = Number(sessionStorage.getItem('userId'))
     const response = await axios.get(`${url}/event/created`);
     return response.data
 }
 
-export async function getEventsByInvitation(): Promise<EventDto[]> {
+export async function getEventsByInvitation(): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
-    const userId: number = Number(sessionStorage.getItem('userId'))
     const response = await axios.get(`${url}/event/invited`);
     return response.data
 }

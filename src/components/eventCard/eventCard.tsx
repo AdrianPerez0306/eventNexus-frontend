@@ -1,4 +1,4 @@
-import { EventDto } from "../../domain/createEvent";
+import { EventDTO } from "../../domain/createEvent";
 import { eventColorMapping, eventShadowColor2 } from "../../utils/typeEvent";
 import { Avatar, AvatarGroup, Box, Button, Divider, Tooltip } from "@mui/material";
 import { EventCategory } from "../../domain/eventTypes";
@@ -13,9 +13,9 @@ import { PersonAdd } from "@mui/icons-material";
 import './event.css'
 import { SimpleDialog } from "./eventParticipantsDialog";
 
-export const EventCard = ({ eventDTO }: { eventDTO: EventDto }) => {
+export const EventCard = ({ eventDTO }: { eventDTO: EventDTO }) => {
 	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(eventDTO.dateFinished.toString()));
-	const [event, setEvent] = useState<EventDto>(eventDTO);
+	const [event, setEvent] = useState<EventDTO>(eventDTO);
 	const userId = Number(sessionStorage.getItem("userId"));
 	const { open, } = useToast()
 	const [openDialog, setOpenDialog] = useState(false);

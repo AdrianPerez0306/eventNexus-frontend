@@ -1,5 +1,5 @@
 import { Dispatch, FormEvent, SetStateAction, useEffect, useRef, useState } from "react";
-import { EventDto } from "../../../domain/createEvent";
+import { EventDTO } from "../../../domain/createEvent";
 import { getEventTypes, } from "../../../services/moduleService";
 import { FormControl, InputLabel, MenuItem, Select, TextField } from "@mui/material";
 import { EventCategory } from "../../../domain/eventTypes";
@@ -18,7 +18,7 @@ const options = [
 type FilterMode = "all" | "title" | "type" | "created" | "invited";
 
 export const EventFilter = (
-    { eventSetter }: { eventSetter: Dispatch<SetStateAction<EventDto[] | undefined>> }
+    { eventSetter }: { eventSetter: Dispatch<SetStateAction<EventDTO[] | undefined>> }
 ) => {
     const inputRef = useRef<HTMLInputElement>(null);
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -77,7 +77,7 @@ export const EventFilter = (
     };
 
     const getEvents = async () => {
-        const events: EventDto[] = await filterStrategy.getEvents(inputRef.current?.value!, eventCategory);
+        const events: EventDTO[] = await filterStrategy.getEvents(inputRef.current?.value!, eventCategory);
         eventSetter(events);
     };
 

@@ -38,7 +38,7 @@ export class EventParticipantDTO{
   }
 }
 
-export class EventDto{
+export class EventDTO{
     id: number
     creatorName:string
     creatorImage: string
