@@ -48,8 +48,6 @@ const ConeIcon: React.FC<ConeIconProps> = ({
   svgContent = defaultSvgContent,
   primaryColor = 'var(--text-color)',
   stripeColor = 'white',
-  width = '24px',
-  height = '24px',
   className,
   style,
 }) => {

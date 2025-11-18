@@ -5,8 +5,7 @@ import { serviceUser } from '../../../services/serviceUser'
 import './directiveInfo.css'
 import { directiveInfoService } from '../../../services/directiveInfoService'
 import { Box, Button, Chip, TextField } from '@mui/material'
-import { StyledFloatingButton, StyledFloatingButtonRight } from '../../moduleEvents/events/eventFilter.style'
-import { Add } from '@mui/icons-material'
+import { StyledFloatingButtonRight } from '../../moduleEvents/events/eventFilter.style'
 import NorthIcon from '@mui/icons-material/North';
 import SouthIcon from '@mui/icons-material/South';
 export const DirectiveInfo = () => {
@@ -91,7 +90,7 @@ export const DirectiveInfo = () => {
                             color= { showCreate ? "error" : "primary"  }  
                             aria-label="add" 
                             sx={{'&:hover':{backgroundColor: !showCreate ? 'primary.main' : 'error.main'}}}
-                            onClick={() => setShowCreate(!showCreate)}
+                            onClick={(_) => setShowCreate(!showCreate)}
                         >
                             { showCreate ? (
                                     <SouthIcon/>
@@ -130,7 +129,7 @@ export const DirectiveInfo = () => {
                                                 color="error"
                                                 size='small'
                                                 variant={priority === 'URGENTE' ? 'filled' : 'outlined'}
-                                                onClick={() => setPriority('URGENTE')}
+                                                onClick={(_) => setPriority('URGENTE')}
                                             />
                                             <Chip
                                                 label="Importante"
@@ -138,7 +137,7 @@ export const DirectiveInfo = () => {
                                                 size='small'
                                                 sx={{color:priority == "IMPORTANTE" ? 'white': 'orange'}}
                                                 variant={priority === 'IMPORTANTE' ? 'filled' : 'outlined'}
-                                                onClick={() => setPriority('IMPORTANTE')}
+                                                onClick={(_) => setPriority('IMPORTANTE')}
                                             />
                                             <Chip
                                                 label="Informativo"
@@ -146,7 +145,7 @@ export const DirectiveInfo = () => {
                                                 size='small'
                                                 variant={priority === 'INFORMATIVO' ? 'filled' : 'outlined'}
                                                 sx={{'&:hover':{backgroundColor:'primary.main'}}}
-                                                onClick={() => setPriority('INFORMATIVO')}
+                                                onClick={(_) => setPriority('INFORMATIVO')}
                                             />
                                         </Box>
                                     </Box>

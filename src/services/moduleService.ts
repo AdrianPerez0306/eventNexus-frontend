@@ -12,7 +12,7 @@ class ModuleService {
         return response.data
     }
 
-    async getModules(id: number): Promise<Module[]> {
+    async getModules(): Promise<Module[]> {
         const url = SERVER_CONNECTION;
         const response = await axios.get(`${url}/module`);
         return response.data
@@ -25,7 +25,6 @@ class ModuleService {
 
     async joinleaveEvent(eventId: number): Promise<ResponseEntityDTO> {
         const url = SERVER_CONNECTION;
-        const employeeId = Number(sessionStorage.getItem('userId'))
         const response = await axios.post(`${url}/event/join-leave?eventId=${eventId}`);
         return response.data
     }
@@ -42,7 +41,6 @@ export const moduleService = new ModuleService()
 
 export async function getEvents(): Promise<EventDTO[]> {
     const url = SERVER_CONNECTION;
-    const userId: number = Number(sessionStorage.getItem('userId'))
     const response = await axios.get(`${url}/event/available`);
      
     return response.data

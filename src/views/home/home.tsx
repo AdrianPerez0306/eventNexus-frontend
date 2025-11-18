@@ -8,16 +8,15 @@ import { Title } from '../../components/title/title'
 
 export const Home = () => {
     const [modules, setModules] = useState<Module[]>([])
-    const id = Number(sessionStorage.getItem("userId"));
-    const [selectedIndex, setSelectedIndex] = useState<number>(0)
-    const [loading, setLoading] = useState<boolean>(false)
+    const [ _, setSelectedIndex] = useState<number>(0)
+    const [ __ ,setLoading] = useState<boolean>(false)
 
     const getModules = async () => {
         try {
-            setLoading(true)
-            const res = await moduleService.getModules(id)
+            setLoading((prev)=>(!prev))
+            const res = await moduleService.getModules()
             setModules(res)
-            setLoading(false)
+            setLoading((prev)=>(!prev))
         } catch (e: unknown) {
              
         }

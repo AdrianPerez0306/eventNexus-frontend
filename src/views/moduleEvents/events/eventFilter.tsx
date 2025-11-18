@@ -65,7 +65,7 @@ export const EventFilter = (
     };
 
     async function handleMenuItemClick(
-        event: React.MouseEvent<HTMLElement>,
+        _: React.MouseEvent<HTMLElement>,
         index: number
     ) {
         if (options[index] === "Sin filtro") noFilterStrategy();
@@ -147,7 +147,7 @@ export const EventFilter = (
                             key={eventType}
                             value={eventType}
                             sx={{ height: '5rem' }}
-                            onClick={(e) => {
+                            onClick={(_) => {
                                 setEventCategory(eventTypes[index])
                                  
                             }}

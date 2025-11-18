@@ -26,7 +26,7 @@ export const NavAdmin = () => {
                     <a
                         key={path}
                         className={`nav-link ${isActive ? 'activo' : ''} ${wasActive ? 'desactivo' : ''}`}
-                        onClick={() => navigate(path)}
+                        onClick={(_) => navigate(path)}
                     >
                         {label}
                     </a>

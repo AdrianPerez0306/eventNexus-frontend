@@ -153,7 +153,7 @@ export const NotificationComponent = () => {
 						newNotifications.length === 0 ? (
 							<Typography sx={{ mt: 2 }}>No tienes notificaciones nuevas.</Typography>
 						) : (
-							notifications.map((notification, index) => (<>
+							notifications.map((notification) => (<>
 								<Box key={notification.id} sx={style2}>
 									<Typography sx= {{textAlign: "left"}} variant="h6">{notification.title}</Typography>
 									<Typography sx={{ mt: 2 }}>{formatIsoToDdMmAaaa(notification.date)}</Typography>
@@ -165,7 +165,7 @@ export const NotificationComponent = () => {
 						notifications.length === 0 ? (
 							<Typography sx={{ mt: 2 }}>No tienes notificaciones.</Typography>
 						) : (
-							notifications.map((notification, index) => (<>
+							notifications.map((notification) => (<>
 								<Box key={notification.id} sx={style2}>
 									<Typography sx= {{textAlign: "left"}} variant="h6">{notification.title}</Typography>
 									<Typography sx={{ mt: 2 }}>{formatIsoToDdMmAaaa(notification.date)}</Typography>

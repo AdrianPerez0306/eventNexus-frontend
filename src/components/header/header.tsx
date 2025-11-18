@@ -5,7 +5,6 @@ import { serviceUser } from "../../services/serviceUser";
 import "./header.css";
 import WestIcon from '@mui/icons-material/West';
 import { NavLink, useLocation } from "react-router-dom";
-import { getNotificationsByUserId } from "../../services/notification.service";
 import { NotificationComponent } from "../notification/notification";
 
 export const Header = () => {
@@ -40,9 +39,6 @@ export const Header = () => {
 		return location.pathname === '/home' || location.pathname === '/profile';
 	}
 
-	function getNotifications() {
-		getNotificationsByUserId(id)
-	}
 	return (
 		<header className="header">
 			

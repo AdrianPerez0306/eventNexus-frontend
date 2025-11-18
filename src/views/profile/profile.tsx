@@ -5,13 +5,11 @@ import { serviceUser } from "../../services/serviceUser";
 import "./profile.css";
 import "../../components/title/title.css"
 import { ProfileImg } from "../../components/profileImg/profileImg";
-import { useLoader } from "../../context/loader/useLoader";
 import { useToast } from "../../context/toast/useToast";
 
 export const Profile = () => {
 	const [datos, setDatos] = useState<DatosForm>(datosForm);
 	const id = Number(sessionStorage.getItem("userId"));
-	const { setIsLoading } = useLoader();
 	const { open } = useToast();
 
 

@@ -15,8 +15,8 @@ import { TIMELOADER } from "../../utils/config";
 import { useToast } from "../../context/toast/useToast";
 
 export const Login = () => {
-	const [us, setUss] = useState("");
-	const [pass, setPass] = useState("");
+	const [_, setUss] = useState("");
+	const [__, setPass] = useState("");
 	const navigate = useNavigate();
 
 	const { setImg } = useProfileImg();
@@ -103,7 +103,7 @@ export const Login = () => {
 					/>
 
 					<h2>
-						<a className="forgotPassword" onClick={() => navigate("/recovery")}>
+						<a className="forgotPassword" onClick={(_) => navigate("/recovery")}>
 
 							Olvidaste tu contraseña?
 						</a>

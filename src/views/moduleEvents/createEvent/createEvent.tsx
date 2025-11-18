@@ -96,7 +96,7 @@ export const CreateEvent = () => {
 
     return (
         <>
-            <StyledFloatingButton color="primary" aria-label="add" onClick={(e) => (nav('/module-events/events'))} sx={{ backgroundColor: 'crimson' }}>
+            <StyledFloatingButton color="primary" aria-label="add" onClick={(_) => (nav('/module-events/events'))} sx={{ backgroundColor: 'crimson' }}>
                 <Cancel />
             </StyledFloatingButton>
 
@@ -190,7 +190,7 @@ export const CreateEvent = () => {
                         color="success"
                         aria-label="add"
                         type="submit"
-                        onSubmit={ (e) => {
+                        onSubmit={ (_) => {
                             handleSubmit(create)
                              }
                         }

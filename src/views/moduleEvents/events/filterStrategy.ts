@@ -7,32 +7,32 @@ export interface FilterOption {
 }
 
 export class AllEventsOption implements FilterOption {
-    public async getEvents(eventTitle:string, eventCategory:EventCategory): Promise<EventDTO[]> {
+    public async getEvents(_:string, __:EventCategory): Promise<EventDTO[]> {
         return await getEvents();
     
     }
 }
 
 export class EventsByTitleSearch implements FilterOption {
-    public async getEvents(eventTitle:string, eventCategory:EventCategory): Promise<EventDTO[]> {
+    public async getEvents(eventTitle:string, _:EventCategory): Promise<EventDTO[]> {
         return await getEventsByTitle(eventTitle);
     }
 }
 
 export class EventsByType implements FilterOption {
-    public async getEvents(eventTitle:string, eventCategory:EventCategory): Promise<EventDTO[]> {
+    public async getEvents(_:string, eventCategory:EventCategory): Promise<EventDTO[]> {
         return await getEventsByCategory(eventCategory);
     }
 }
 
 export class EventsByCreated implements FilterOption {
-    public async getEvents(eventTitle:string, eventCategory:EventCategory): Promise<EventDTO[]> {
+    public async getEvents(_:string, __:EventCategory): Promise<EventDTO[]> {
         return await getEventsByCreator();
     }
 }
 
 export class EventsByInvitation implements FilterOption {
-    public async getEvents(eventTitle:string, eventCategory:EventCategory): Promise<EventDTO[]> {
+    public async getEvents(_:string, __:EventCategory): Promise<EventDTO[]> {
         return await getEventsByInvitation();
     }
 }

@@ -94,7 +94,7 @@ export const EventCard = ({ eventDTO }: { eventDTO: EventDTO }) => {
 				)}
 
 				{event.creatorId != userId && (<>
-					{event.participants.map((participant, index) => (participant.id)).includes(userId) ? (
+					{event.participants.map((participant) => (participant.id)).includes(userId) ? (
 						<StyledIconButton onClick={joinleaveEvent}>
 							<PersonRemoveIcon sx={{ color: "red" }} />
 						</StyledIconButton>

@@ -7,7 +7,7 @@ import { ProfileCard } from "../../../components/profileCard/profileCard";
 import { serviceUser } from "../../../services/serviceUser";
 import { adminService } from "../../../services/adminService";
 import AddIcon from '@mui/icons-material/Add';
-import { StyledFloatingButton, StyledFloatingButtonRight } from "../../moduleEvents/events/eventFilter.style";
+import { StyledFloatingButtonRight } from "../../moduleEvents/events/eventFilter.style";
 import { useNavigate } from "react-router-dom";
 
 
@@ -29,8 +29,7 @@ export const SearchUser = () => {
 	},[])
 
 	const deleteUser = async (id: number) => {
-		// TODO implementar la eliminacion de usuario
-		const res = await adminService.deleteUser(id);
+		await adminService.deleteUser(id);
 
 		const newUsers = users?.filter((user) => user.id !== id);
 		setUsers(newUsers);
@@ -57,13 +56,13 @@ export const SearchUser = () => {
 		<section className="section">
 			<h1>Buscar usuarios</h1>
 			<h3>Aqui puedes editar o eliminar a los usuarios</h3>
-			<StyledFloatingButtonRight color="primary" aria-label="add" onClick={(e) => (nav('/module-admin/create-user'))}>
+			<StyledFloatingButtonRight color="primary" aria-label="add" onClick={(_) => (nav('/module-admin/create-user'))}>
 			<AddIcon />
 			</StyledFloatingButtonRight>
 			<div
 				ref={containerRef}
 				className={`search-container ${expanded ? "expanded" : ""}`}
-				onClick={() => setExpanded(true)}
+				onClick={(_) => setExpanded(true)}
 			>
 				<input
 					type="text"
